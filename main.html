@@ -21,26 +21,21 @@ padding: 250px;
 <div>
 <input type="number" placeholder="N1" id="n1">
 </div>
-
-<button onclick="potencia()">
-Raiz
+<button onclick="soma()">
+Soma
 </button>
+    
+
 
 <button onclick="potencia()">
 x²
 </button>
 
-<button onclick="potencia()">
-x!
-</button>
 
 <div>
 <input type="number" placeholder="N2" id="n2">
 </div>
 
-<button onclick="potencia()">
-=
-</button>
 
 <div>
 <button id="resultado">
@@ -50,6 +45,15 @@ resultado
 
 <script>
 
+function soma(){
+let n1 = Number(document.getElementById("n1").value)
+let n2 = Number(document.getElementById("n2").value)
+
+let r = n1 + n2
+
+document.getElementById("resultado").innerText = r
+
+}
 function potencia(){
 
 let n1 = Number(document.getElementById("n1").value)
