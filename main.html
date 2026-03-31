@@ -3,71 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Calculadora</title>
 </head>
 <body>
-    <style>
-        body {
-    display: flex;
-    justify-content: center;
-    align-items: center;           
-    margin: 0 auto;      
-    background-color: #ffffff;
-    padding: 250px;
+
+<style>
+body {
+display: flex;
+justify-content: center;
+align-items: center;           
+margin: 0 auto;      
+background-color: #ffffff;
+padding: 250px;
 }
 </style>
 
-    <div>
-            <input
-                type="number"
-                placeholder="N1"
-            >
-    </div>
+<div>
+<input type="number" placeholder="N1" id="n1">
+</div>
 
-    <button type="submit">
-        +
-    </button>
-    <button type="submit">
-        -
-    </button>
-    <button type="submit">
-        /
-    </button>
-    <button type="submit">
-        x
-    </button>
-   <button type="submit">
-        Raiz
-    </button>
-    <button type="submit">
-        x²
-   </button>
-   <button type="submit">
-        x!
+<button onclick="potencia()">
+Raiz
 </button>
 
+<button onclick="potencia()">
+x²
+</button>
 
-    <div>
-        <input
-            type="number"
-            placeholder="N2"
-        >
-</div>
-<button type="submit">
-    =
+<button onclick="potencia()">
+x!
 </button>
 
 <div>
-    <button>
-        resultado
-    </button>
-  
+<input type="number" placeholder="N2" id="n2">
 </div>
 
+<button onclick="potencia()">
+=
+</button>
 
-    
- 
-   
+<div>
+<button id="resultado">
+resultado
+</button>
+</div>
+
+<script>
+
+function potencia(){
+
+let n1 = Number(document.getElementById("n1").value)
+let n2 = Number(document.getElementById("n2").value)
+
+let r = n1 ** n2
+
+document.getElementById("resultado").innerText = r
+
+}
+
+</script>
+
 </body>
 </html>
