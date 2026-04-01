@@ -32,6 +32,11 @@ x²
 </button>
 
 
+<button onclick="Raiz()">
+    Raiz
+    </button>
+
+
 <div>
 <input type="number" placeholder="N2" id="n2">
 </div>
@@ -60,6 +65,15 @@ let n1 = Number(document.getElementById("n1").value)
 let n2 = Number(document.getElementById("n2").value)
 
 let r = n1 ** n2
+
+document.getElementById("resultado").innerText = r
+
+}
+function Raiz(){
+
+let n1 = Number(document.getElementById("n1").value)
+
+let r = Math.sqrt(n1)
 
 document.getElementById("resultado").innerText = r
 
