@@ -34,7 +34,9 @@ padding: 250px;
         Multiplicação
         </button>
 
-
+        <button onclick="divisao()">
+            Divisão
+            </button>
 
 
 
@@ -70,7 +72,14 @@ resultado
 </div>
 
 <script>
-    
+    function divisao(){
+let n1 = Number(document.getElementById("n1").value)
+let n2 = Number(document.getElementById("n2").value)
+
+let r = n1 / n2
+
+document.getElementById("resultado").innerText = r
+    }
     function multiplicacao(){
 let n1 = Number(document.getElementById("n1").value)
 let n2 = Number(document.getElementById("n2").value)
