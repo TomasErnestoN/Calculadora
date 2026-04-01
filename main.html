@@ -22,14 +22,26 @@ padding: 250px;
 <input type="number" placeholder="N1" id="n1">
 </div>
 
+<button onclick="soma()">
+    Soma
+    </button>
+
 <button onclick="subtracao()">
     Subtração
     </button>
-
-<button onclick="soma()">
-Soma
-</button>
     
+    <button onclick="multiplicacao()">
+        Multiplicação
+        </button>
+
+
+
+
+
+
+
+
+
 
 
 <button onclick="potencia()">
@@ -58,6 +70,16 @@ resultado
 </div>
 
 <script>
+    
+    function multiplicacao(){
+let n1 = Number(document.getElementById("n1").value)
+let n2 = Number(document.getElementById("n2").value)
+
+let r = n1 * n2
+
+document.getElementById("resultado").innerText = r
+
+}
 
 function subtracao(){
 let n1 = Number(document.getElementById("n1").value)
