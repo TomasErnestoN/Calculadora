@@ -41,6 +41,10 @@ x²
     Raiz
     </button>
 
+<button onclick="Fatorial()">
+     x!
+    </button>
+
 
 <div>
 <input type="number" placeholder="N2" id="n2">
@@ -92,6 +96,30 @@ let r = Math.sqrt(n1)
 
 document.getElementById("resultado").innerText = r
 
+}
+
+function Fatorial(){
+let n = Number(document.getElementById("n1").value)
+
+// validações
+if (n < 0) {
+    document.getElementById("resultado").innerText = "Erro: número negativo"
+    return
+}
+
+if (!Number.isInteger(n)) {
+    document.getElementById("resultado").innerText = "Erro: use inteiro"
+    return
+}
+
+// cálculo
+let resultado = 1
+
+for(let i = 1; i <= n; i++){
+    resultado *= i
+}
+
+document.getElementById("resultado").innerText = resultado
 }
 
 </script>
