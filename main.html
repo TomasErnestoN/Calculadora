@@ -21,6 +21,11 @@ padding: 250px;
 <div>
 <input type="number" placeholder="N1" id="n1">
 </div>
+
+<button onclick="subtracao()">
+    Subtração
+    </button>
+
 <button onclick="soma()">
 Soma
 </button>
@@ -49,6 +54,16 @@ resultado
 </div>
 
 <script>
+
+function subtracao(){
+let n1 = Number(document.getElementById("n1").value)
+let n2 = Number(document.getElementById("n2").value)
+
+let r = n1 - n2
+
+document.getElementById("resultado").innerText = r
+
+}
 
 function soma(){
 let n1 = Number(document.getElementById("n1").value)
