@@ -46,7 +46,7 @@ padding: 250px;
 
 
 
-<button onclick="potencia()">
+<button onclick="exponenciacao()">
 x²
 </button>
 
@@ -109,15 +109,12 @@ let r = n1 + n2
 document.getElementById("resultado").innerText = r
 
 }
-function potencia(){
+function exponenciacao(){
+    let n1 = Number(document.getElementById("n1").value)
 
-let n1 = Number(document.getElementById("n1").value)
-let n2 = Number(document.getElementById("n2").value)
+    let r = n1 ** 2
 
-let r = n1 ** n2
-
-document.getElementById("resultado").innerText = r
-
+    document.getElementById("resultado").innerText = r
 }
 function Raiz(){
 
