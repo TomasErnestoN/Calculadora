@@ -1,156 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora </title>
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora</title>
 
 <style>
-body {
-display: flex;
-justify-content: center;
-align-items: center;           
-margin: 0 auto;      
-background-color: #ffffff;
-padding: 250px;
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0 auto;
+background-color:#ffffff;
+padding:250px;
 }
 </style>
+
+</head>
+
+<body>
 
 <div>
 <input type="number" placeholder="N1" id="n1">
 </div>
 
-<button onclick="soma()">
-    Soma
-    </button>
+<button onclick="soma()">Soma</button>
+<button onclick="subtracao()">Subtração</button>
+<button onclick="multiplicacao()">Multiplicação</button>
+<button onclick="divisao()">Divisão</button>
 
-<button onclick="subtracao()">
-    Subtração
-    </button>
-    
-    <button onclick="multiplicacao()">
-        Multiplicação
-        </button>
-
-        <button onclick="divisao()">
-            Divisão
-            </button>
-
-
-
-
-
-
-
-
-
-<button onclick="exponenciacao()">
-x²
-</button>
-
-
-<button onclick="Raiz()">
-    Raiz
-    </button>
-
-<button onclick="Fatorial()">
-     x!
-    </button>
-
+<button onclick="exponenciacao()">x²</button>
+<button onclick="raiz()">Raiz</button>
+<button onclick="fatorial()">x!</button>
 
 <div>
 <input type="number" placeholder="N2" id="n2">
 </div>
 
-
-<div>
-<button id="resultado">
-resultado
-</button>
+<div
+id="resultado">
 </div>
 
-<script>
-    function divisao(){
-let n1 = Number(document.getElementById("n1").value)
-let n2 = Number(document.getElementById("n2").value)
-
-let r = n1 / n2
-
-document.getElementById("resultado").innerText = r
-    }
-    function multiplicacao(){
-let n1 = Number(document.getElementById("n1").value)
-let n2 = Number(document.getElementById("n2").value)
-
-let r = n1 * n2
-
-document.getElementById("resultado").innerText = r
-
-}
-
-function subtracao(){
-let n1 = Number(document.getElementById("n1").value)
-let n2 = Number(document.getElementById("n2").value)
-
-let r = n1 - n2
-
-document.getElementById("resultado").innerText = r
-
-}
-
-function soma(){
-let n1 = Number(document.getElementById("n1").value)
-let n2 = Number(document.getElementById("n2").value)
-
-let r = n1 + n2
-
-document.getElementById("resultado").innerText = r
-
-}
-function exponenciacao(){
-    let n1 = Number(document.getElementById("n1").value)
-
-    let r = n1 ** 2
-
-    document.getElementById("resultado").innerText = r
-}
-function Raiz(){
-
-let n1 = Number(document.getElementById("n1").value)
-
-let r = Math.sqrt(n1)
-
-document.getElementById("resultado").innerText = r
-
-}
-
-function Fatorial(){
-let n = Number(document.getElementById("n1").value)
-
-// validações
-if (n < 0) {
-    document.getElementById("resultado").innerText = "Erro: número negativo"
-    return
-}
-
-if (!Number.isInteger(n)) {
-    document.getElementById("resultado").innerText = "Erro: use inteiro"
-    return
-}
-
-// cálculo
-let resultado = 1
-
-for(let i = 1; i <= n; i++){
-    resultado *= i
-}
-
-document.getElementById("resultado").innerText = resultado
-}
-
-</script>
+<script type="module" src="ui.js"></script>
 
 </body>
 </html>
