@@ -1,89 +1,77 @@
-# 🧮 Bot Calculator - Projeto em Equipe
+# 🧮 Bot Calculator - Projeto Profissional
 
-Este projeto é uma calculadora web construída com HTML, CSS e JavaScript. 
-Nossa principal evolução nesta versão foi sair de um "código de iniciante" para uma **Arquitetura Profissional**, separando as responsabilidades e adicionando testes automatizados.
+Este projeto é uma calculadora web avançada, refatorada para seguir os melhores padrões da indústria, utilizando **Arquitetura de Separação de Responsabilidades** e automação completa de testes.
 
-## 🏗️ Por que mudamos a estrutura? (Para a equipe entender)
-Antes, tínhamos tela, estilos e matemática tudo misturado. Isso gerava bugs difíceis de achar. Agora, dividimos o projeto para cada arquivo ter apenas **um único trabalho**:
-
-* 🎨 **`style.css`**: Só cuida da beleza (cores, tamanhos, fontes).
-* 💀 **`index.html`**: Só monta o esqueleto (botões e caixas de texto).
-* 🧠 **`calculos.js`**: Só faz a matemática. Não sabe o que é HTML, não sabe o que é tela. Só recebe números e devolve resultados.
-* 🔌 **`ui.js`**: É a ponte! Ele pega os cliques do HTML e manda para o `calculos.js`, depois pega a resposta e joga na tela.
+## 🏗️ Por que mudamos a estrutura?
+Para garantir que o projeto seja escalável e fácil de manter, aplicamos a separação de lógica e interface:
+- **Lógica (JS):** A matemática pura (`calculos.js`) está isolada, permitindo testes rápidos e precisos.
+- **Interface (UI):** O arquivo `ui.js` gerencia apenas a interação com o usuário (DOM).
+- **Segurança:** Implementamos uma suíte de testes que impede que novas atualizações quebrem funcionalidades antigas.
 
 ---
 
 ## 📁 Estrutura de Pastas
 
 ```text
-/
-├── public/
-│   └── index.html         # Esqueleto do site
-├── src/
-│   ├── css/
-│   │   └── style.css      # Estilos
-│   └── js/
-│       ├── calculos.js    # Lógica matemática pura
-│       └── ui.js          # Lógica de interface (User Interface)
-├── tests/
-│   └── calculos.test.js   # Testes unitários (testa só a matemática)
-├── cypress/
-│   └── e2e/
-│       └── spec.cy.js     # Robô que testa a tela inteira sozinha
-/
+    /
+    ├── public/                 # Pasta de distribuição
+    │   └── index.html          # Arquivo principal (Skeleton da aplicação)
+    ├── src/                    # Código-fonte (Source)
+    │   ├── css/
+    │   │   └── style.css       # Estilização e design responsivo
+    │   └── js/
+    │       ├── calculos.js     # Lógica matemática pura (Soma, Sub, etc.)
+    │       └── ui.js           # Gerenciamento de eventos e manipulação de tela
+    ├── tests/                  # Testes Unitários
+    │   └── calculos.test.js    # Validação da lógica no terminal (Jest)
+    ├── cypress/                # Testes de Ponta a Ponta (E2E)
+    │   └── e2e/
+    │       └── spec.cy.js      # Roteiro que o robô segue para testar a interface
+    ├── package.json            # Configurações de scripts e dependências
+    ├── .gitignore              # Bloqueio de arquivos desnecessários no Git
+    └── README.md               # Documentação oficial (Este arquivo)
 
-🚀 Como rodar o projeto
-Abra o arquivo public/index.html.
+##🚀 Como Executar o Projeto
+Instale as dependências necessárias:
 
-Inicie com a extensão Live Server no seu VS Code.
+Bash
 
-🤖 Como rodar os Testes (Qualidade de Software)
-Nós implementamos testes para garantir que ninguém quebre a calculadora sem querer.
+npm install
+Inicie a aplicação utilizando a extensão Live Server do VS Code no arquivo public/index.html (Porta padrão: 5500).
 
-1. Testar a Matemática Oculta (Jest)
-Abre o terminal e roda códigos invisíveis para checar se 1+1 ainda é 2.
+##🧪 Suíte de Testes (Qualidade de Software)
+1. Testes de Lógica (Jest)
+Focados na precisão dos cálculos.
 
-Comando: npm test
+npm test - Roda os testes unitários básicos.
 
-2. Testar a Tela com Robô (Cypress)
-Abre um navegador sozinho, clica nos botões e verifica se o resultado aparece certo.
+npm run test:detalhado - Lista cada operação com checks individuais ✅.
 
-Comando: npx cypress open
-Excelente reflexão! É exatamente assim que um desenvolvedor de verdade pensa: *"Como isso afeta o resto da equipe?"*
+npm run test:cobertura - Exibe a tabela detalhada de % de código protegido.
 
-Vamos dividir a sua dúvida em três partes: o Scrum Master, o README didático e a nossa revisão.
+2. Automação de Interface (Cypress)
+Robôs que testam a experiência real do usuário.
 
-### 👥 1. O Scrum Master e a mudança brusca na estrutura
+npx cypress open - Abre o navegador para visualização em tempo real do robô.
 
-**Isso vai dar problema?** Depende de *como* você vai apresentar isso.
+npm run cypress:terminal - (Recomendado) Roda o robô em segundo plano e entrega um relatório executivo com checks ✅ e resumo final no terminal.
 
-No mundo real, se você pega o projeto que todo mundo está mexendo, muda a estrutura inteira sozinho e joga na `main` (branch principal), os seus amigos vão ter um ataque do coração (o famoso **Merge Conflict**), porque o código que eles estão fazendo no computador deles não vai mais encaixar no seu.
+Aqui está o código completo do seu **README.md**, já incluindo o comando que você mais gostou (`cypress:terminal`) devidamente configurado e com a estrutura de pastas detalhada.
 
-**O que o Scrum Master vai achar?**
-* **O lado bom:** Ele vai **adorar** tecnicamente. Você aplicou Separação de Responsabilidades (MVC/Arquitetura), Testes Unitários e Testes E2E. Isso é nível de profissional, não de iniciante.
-* **O lado do processo:** O Scrum valoriza a comunicação. O ideal agora é você criar uma branch chamada, por exemplo, `feat/nova-arquitetura` ou `refatoracao-testes`. Na próxima reunião (Daily ou Sprint Review), você mostra essa branch para a equipe e diz: *"Pessoal, eu estudei uma forma de deixar nosso código profissional e testável por robôs. Olhem como ficou. Vamos adotar esse padrão?"*
-
-**Resumo:** Não é um problema, é uma **proposta de melhoria gigante**. Só garanta que está em uma branch separada para não quebrar o trabalho dos seus amigos antes de eles aprovarem!
+Pode copiar e colar tudo:
 
 ---
-
-### 📖 2. O README.md (Versão Didática para a Equipe)
-
-Como o foco agora é fazer seus amigos entenderem, fiz um README que não só mostra *como* rodar, mas explica o *porquê* das coisas estarem separadas. Copie e cole no seu `README.md`:
 
 ```markdown
-# 🧮 Calculadora Profissional - Projeto em Equipe
+# 🧮 Bot Calculator - Projeto Profissional
 
-Este projeto é uma calculadora web construída com HTML, CSS e JavaScript. 
-Nossa principal evolução nesta versão foi sair de um "código de iniciante" para uma **Arquitetura Profissional**, separando as responsabilidades e adicionando testes automatizados.
+Este projeto é uma calculadora web avançada, refatorada para seguir os melhores padrões da indústria, utilizando **Arquitetura de Separação de Responsabilidades** e automação completa de testes.
 
-## 🏗️ Por que mudamos a estrutura? (Para a equipe entender)
-Antes, tínhamos tela, estilos e matemática tudo misturado. Isso gerava bugs difíceis de achar. Agora, dividimos o projeto para cada arquivo ter apenas **um único trabalho**:
-
-* 🎨 **`style.css`**: Só cuida da beleza (cores, tamanhos, fontes).
-* 💀 **`index.html`**: Só monta o esqueleto (botões e caixas de texto).
-* 🧠 **`calculos.js`**: Só faz a matemática. Não sabe o que é HTML, não sabe o que é tela. Só recebe números e devolve resultados.
-* 🔌 **`ui.js`**: É a ponte! Ele pega os cliques do HTML e manda para o `calculos.js`, depois pega a resposta e joga na tela.
+## 🏗️ Por que mudamos a estrutura?
+Para garantir que o projeto seja escalável e fácil de manter, aplicamos a separação de lógica e interface:
+- **Lógica (JS):** A matemática pura (`calculos.js`) está isolada, permitindo testes rápidos e precisos.
+- **Interface (UI):** O arquivo `ui.js` gerencia apenas a interação com o usuário (DOM).
+- **Segurança:** Implementamos uma suíte de testes que impede que novas atualizações quebrem funcionalidades antigas.
 
 ---
 
@@ -91,47 +79,62 @@ Antes, tínhamos tela, estilos e matemática tudo misturado. Isso gerava bugs di
 
 ```text
 /
-├── public/
-│   └── index.html         # Esqueleto do site
-├── src/
+├── public/                 # Pasta de distribuição
+│   └── index.html          # Arquivo principal (Skeleton da aplicação)
+├── src/                    # Código-fonte (Source)
 │   ├── css/
-│   │   └── style.css      # Estilos
+│   │   └── style.css       # Estilização e design responsivo
 │   └── js/
-│       ├── calculos.js    # Lógica matemática pura
-│       └── ui.js          # Lógica de interface (User Interface)
-├── tests/
-│   └── calculos.test.js   # Testes unitários (testa só a matemática)
-├── cypress/
+│       ├── calculos.js     # Lógica matemática pura (Soma, Sub, etc.)
+│       └── ui.js           # Gerenciamento de eventos e manipulação de tela
+├── tests/                  # Testes Unitários
+│   └── calculos.test.js    # Validação da lógica no terminal (Jest)
+├── cypress/                # Testes de Ponta a Ponta (E2E)
 │   └── e2e/
-│       └── spec.cy.js     # Robô que testa a tela inteira sozinha
+│       └── spec.cy.js      # Roteiro que o robô segue para testar a interface
+├── package.json            # Configurações de scripts e dependências
+├── .gitignore              # Bloqueio de arquivos desnecessários no Git
+└── README.md               # Documentação oficial (Este arquivo)
 ```
 
-## 🚀 Como rodar o projeto
+---
 
-1. Certifique-se de ter a extensão **Live Server** instalada no VS Code.
-2. Abra o arquivo `public/index.html`.
-3. Clique em **"Go Live"** no canto inferior direito do VS Code.
-4. **Importante:** O endereço padrão deve ser `http://127.0.0.1:5500`. Se o seu Live Server usar outra porta, você precisará ajustar a URL no arquivo `cypress/e2e/spec.cy.js`.
+## 🚀 Como Executar o Projeto
 
-## 🤖 Como rodar os Testes (Cypress)
+1.  Instale as dependências necessárias:
+    ```bash
+    npm install
+    ```
+2.  Inicie a aplicação utilizando a extensão **Live Server** do VS Code no arquivo `public/index.html` (Porta padrão: 5500).
 
-1. Com o **Live Server rodando**, abra um novo terminal.
-2. Digite o comando: `npx cypress open`.
-3. Escolha "E2E Testing" e selecione o navegador (Chrome).
-4. Clique no arquivo `spec.cy.js` para ver o robô trabalhar.
+---
 
-### ⚠️ Solução de Problemas (FAQ)
-**O Cypress deu erro "ECONNREFUSED"?**
-Isso significa que o robô tentou acessar a calculadora, mas ela estava "desligada". Verifique se o seu **Live Server** está ativo (passo 3 do "Como rodar").
+## 🧪 Suíte de Testes (Qualidade de Software)
 
-## 🛠️ Comandos de Teste
+### 1. Testes de Lógica (Jest)
+Focados na precisão dos cálculos.
+* `npm test` - Roda os testes unitários básicos.
+* `npm run test:detalhado` - Lista cada operação com checks individuais ✅.
+* `npm run test:cobertura` - Exibe a tabela detalhada de % de código protegido.
 
-### 🧪 Testes Unitários (Lógica Matemática)
-* `npm test` - Roda os testes simples.
-* `npm run test:detalhado` - Mostra a lista de cada operação testada ✅.
-* `npm run test:cobertura` - Mostra a tabela de % de código testado.
+### 2. Automação de Interface (Cypress)
+Robôs que testam a experiência real do usuário.
+* `npx cypress open` - Abre o navegador para visualização em tempo real do robô.
+* `npm run cypress:terminal` - **(Recomendado)** Roda o robô em segundo plano e entrega um relatório executivo com checks ✅ e resumo final no terminal.
 
-### 🤖 Robô de Tela (Interface)
-* `npx cypress open` - Abre a janela visual do robô.
-* `npx cypress run --reporter spec` - Roda o robô direto no terminal com checks ✅.
+---
+```
 
+### 💡 Dica importante sobre a falha:
+Se o comando `npm run cypress:terminal` der erro de "Failing", certifique-se de que o **Live Server** está ligado no navegador. Se o site não estiver aberto no endereço configurado, o robô não consegue "entrar" na calculadora para testar e acaba falhando.
+
+**Agora é só salvar, commitar e fazer o Push!** O seu projeto está com uma documentação digna de um desenvolvedor profissional. 🚀
+
+---
+##Autores:
+
+Kaio Richard Amaral Lisboa
+
+Tomás Ernesto Carvalho
+
+Alex Neves 
