@@ -1,0 +1,36 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "description": "Separando HTML de JS, para a futura integração do arquivo de testes",
+  "main": "calculos.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasErnestoN/Calculadora.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/TomasErnestoN/Calculadora/issues"
+  },
+  "homepage": "https://github.com/TomasErnestoN/Calculadora#readme",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@testing-library/dom": "^10.4.1",
+    "babel-jest": "^30.3.0",
+    "cypress": "^15.13.1",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
+}
