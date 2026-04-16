@@ -4,7 +4,9 @@
   "description": "Separando HTML de JS, para a futura integração do arquivo de testes",
   "main": "calculos.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:detalhado": "jest --verbose",
+    "test:cobertura": "jest --coverage"
   },
   "repository": {
     "type": "git",

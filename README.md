@@ -124,3 +124,14 @@ Antes, tínhamos tela, estilos e matemática tudo misturado. Isso gerava bugs di
 **O Cypress deu erro "ECONNREFUSED"?**
 Isso significa que o robô tentou acessar a calculadora, mas ela estava "desligada". Verifique se o seu **Live Server** está ativo (passo 3 do "Como rodar").
 
+## 🛠️ Comandos de Teste
+
+### 🧪 Testes Unitários (Lógica Matemática)
+* `npm test` - Roda os testes simples.
+* `npm run test:detalhado` - Mostra a lista de cada operação testada ✅.
+* `npm run test:cobertura` - Mostra a tabela de % de código testado.
+
+### 🤖 Robô de Tela (Interface)
+* `npx cypress open` - Abre a janela visual do robô.
+* `npx cypress run --reporter spec` - Roda o robô direto no terminal com checks ✅.
+
