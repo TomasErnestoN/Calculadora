@@ -121,7 +121,7 @@ Focados na precisão dos cálculos.
 Robôs que testam a experiência real do usuário.
 * `npx cypress open` - Abre o navegador para visualização em tempo real do robô.
 * `npm run cypress:terminal` - **(Recomendado)** Roda o robô em segundo plano e entrega um relatório executivo com checks ✅ e resumo final no terminal.
-
+* "cypress:terminal": "cypress run --reporter spec"
 ---
 ```
 

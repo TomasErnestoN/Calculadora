@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "test:detalhado": "jest --verbose",
-    "test:cobertura": "jest --coverage"
+    "test:cobertura": "jest --coverage",
+    "cypress:open": "cypress open",
+    "cypress:terminal": "cypress run --reporter spec"
   },
   "repository": {
     "type": "git",
