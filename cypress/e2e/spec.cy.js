@@ -1,8 +1,9 @@
 describe('Robô testando a Calculadora', () => {
 
   // Recarrega a página antes de cada teste
-  beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/public/index.html');
+beforeEach(() => {
+    // Usamos '/' porque o Cypress vai pegar o endereço base que o robô criar
+    cy.visit('/');
   });
 
   it('Deve testar a Soma', () => {
