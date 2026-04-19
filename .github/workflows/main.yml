@@ -1,45 +1,36 @@
-# Nome da automação (Aparece no topo da aba Actions)
 name: CI-Calculadora-Profissional
 
 on:
   push:
-    # O robô vai rodar em TODAS essas branches para garantir segurança total
     branches: [ "main", "master", "dev", "testes", "infra-ci-cd" ]
   pull_request:
-    # O robô vai validar qualquer tentativa de entrar nessas branches principais
     branches: [ "main", "master", "dev" ]
 
 jobs:
   build-and-qa:
-    # Máquina virtual Linux (padrão de mercado)
     runs-on: ubuntu-latest
 
     steps:
-      # PASSO 1: O GitHub "clona" seu projeto para dentro da máquina virtual
       - name: 📥 Checkout do código
         uses: actions/checkout@v4
 
-      # PASSO 2: Instala o Node.js (Ambiente necessário para rodar JS e Testes)
       - name: 🟢 Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'
 
-      # PASSO 3: Instala as dependências (Jest, Cypress, etc.)
       - name: 📦 Instalar dependências
         run: npm install
 
-      # PASSO 4: Testes de Lógica (Igual ao do seu professor)
-      # Verifica se 2+2 continua sendo 4 no seu calculos.js
       - name: 🧪 Executar Testes Unitários (Jest)
         run: npm test
 
-      # PASSO 5: Executar Testes de Interface (Cypress)
       - name: 🤖 Executando Cypress
         uses: cypress-io/github-action@v6
         with:
-          # Mudamos para 'npx serve public' para ele ler a pasta correta
-          # E forçamos a porta 3000 para não ter erro
+          # Sobe o site da pasta public na porta 3000
           start: npx serve public -p 3000
           wait-on: 'http://localhost:3000'
+          # Dá tempo para o servidor estabilizar no GitHub
+          wait-on-timeout: 60
