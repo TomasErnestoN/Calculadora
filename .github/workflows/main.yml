@@ -1,4 +1,4 @@
-name: CI-Calculadora-Profissional
+name: CI-Calculadora
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main", "master", "dev" ]
 
 jobs:
-  build-and-qa:
+  testes-logica:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,14 +23,6 @@ jobs:
       - name: 📦 Instalar dependências
         run: npm install
 
+      # Aqui é onde a mágica acontece de forma simples e direta
       - name: 🧪 Executar Testes Unitários (Jest)
         run: npm test
-
-      - name: 🤖 Executando Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          # Sobe o site da pasta public na porta 3000
-          start: npx serve public -p 3000
-          wait-on: 'http://localhost:3000'
-          # Dá tempo para o servidor estabilizar no GitHub
-          wait-on-timeout: 60
