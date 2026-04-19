@@ -35,12 +35,11 @@ jobs:
       - name: 🧪 Executar Testes Unitários (Jest)
         run: npm test
 
-      # PASSO 5: O diferencial do seu projeto (Cypress)
-      # O robô abre o site e clica nos botões sozinho
-      - name: 🤖 Executar Testes de Interface (Cypress)
+      # PASSO 5: Executar Testes de Interface (Cypress)
+      - name: 🤖 Executando Cypress
         uses: cypress-io/github-action@v6
         with:
-          # Inicia um servidor simples para servir a pasta 'public'
-          start: npx serve public
-          # O robô aguarda o site estar "vivo" antes de clicar em tudo
+          # Mudamos para 'npx serve public' para ele ler a pasta correta
+          # E forçamos a porta 3000 para não ter erro
+          start: npx serve public -p 3000
           wait-on: 'http://localhost:3000'
