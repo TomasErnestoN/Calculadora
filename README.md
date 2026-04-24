@@ -25,7 +25,8 @@ Resumidamente, o projeto focou em três grandes pilares:
 
 ## 📁 Estrutura de Pastas
 
-```Calculadora
+```
+    Calculadora
     /
     ├── .github/workflows/      # Robôs de automação (CI/CD)
     │   ├── auto_release.yml    # Gera pacotes .zip de versão oficial
@@ -85,7 +86,8 @@ Se o comando `npm run cypress:terminal` der erro de "Failing", certifique-se de 
 
 ---
 
-🤖 Automações (GitHub Actions)
+## 🤖 Automações (GitHub Actions)
+
 CI-Pipeline (main.yml): Valida a qualidade do código rodando os testes a cada Pull Request.
 
 Auto Release (auto_release.yml): Empacota o código em um .zip oficial na aba "Releases" a cada merge na main.
