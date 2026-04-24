@@ -25,7 +25,7 @@ Resumidamente, o projeto focou em três grandes pilares:
 
 ## 📁 Estrutura de Pastas
 
-```text
+```Calculadora
     /
     ├── .github/workflows/      # Robôs de automação (CI/CD)
     │   ├── auto_release.yml    # Gera pacotes .zip de versão oficial
