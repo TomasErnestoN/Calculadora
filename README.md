@@ -1,19 +1,8 @@
 # 🧮 Bot Calculator - Projeto Profissional
 
-Este projeto é uma calculadora web avançada, refatorada para seguir os melhores padrões da indústria, utilizando **Arquitetura de Separação de Responsabilidades** e automação completa de testes.
-
-## 🏗️ Por que mudamos a estrutura?
-Para garantir que o projeto seja escalável e fácil de manter, aplicamos a separação de lógica e interface:
-- **Lógica (JS):** A matemática pura (`calculos.js`) está isolada, permitindo testes rápidos e precisos.
-- **Interface (UI):** O arquivo `ui.js` gerencia apenas a interação com o usuário (DOM).
-- **Segurança:** Implementamos uma suíte de testes que impede que novas atualizações quebrem funcionalidades antigas.
-
----
-
-# 🧮 Bot Calculator - Projeto Profissional
-
 Este projeto é uma calculadora web avançada, refatorada para seguir os melhores padrões da indústria, utilizando **Arquitetura de Separação de Responsabilidades** e automação completa de testes e esteiras de integração (CI/CD).
 
+---
 ## 🎯 Objetivo e Resumo do Projeto
 O objetivo principal deste projeto foi elevar o nível de uma aplicação web simples, aplicando práticas reais do mercado de Engenharia de Software. 
 
