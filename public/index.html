@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Profissional</title>
+    
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body>
+
+    <div id="app">
+        <h2>Calculadora</h2>
+        
+        <div class="inputs">
+            <input type="number" placeholder="A" id="n1">
+            <input type="number" placeholder="B" id="n2">
+        </div>
+
+        <div class="botoes">
+            <button onclick="soma()">Soma</button>
+            <button onclick="subtracao()">Subtração</button>
+            <button onclick="multiplicacao()">Multiplicação</button>
+            <button onclick="divisao()">Divisão</button>
+            <button onclick="exponenciacao()">x²</button>
+            <button onclick="raiz()">Raiz</button>
+            <button onclick="fatorial()">x!</button>
+            
+            <button class="btn-limpar" onclick="limpar()">Limpar Resultados</button>
+        </div>
+
+        <div id="resultado">Aguardando operação...</div>
+    </div>
+    
+    <script type="module" src="../src/js/ui.js"></script>
+
+</body>
+</html>
