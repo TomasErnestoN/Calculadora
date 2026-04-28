@@ -13,9 +13,9 @@ window.limpar = function() {
     document.getElementById("resultado").innerText = "Aguardando operação...";
 };
 
-window.soma = function() {
+window.multipicacao = function() {
     const { n1, n2, resElement } = getValores();
-    resElement.innerText = `A soma de ${n1} + ${n2} = ${soma(n1, n2)}`;
+    resElement.innerText = `A multiplicação de ${n1} * ${n2} = ${multiplicacao(n1, n2)}`;
 };
 
 window.subtracao = function() {
@@ -25,7 +25,7 @@ window.subtracao = function() {
 
 window.multiplicacao = function() {
     const { n1, n2, resElement } = getValores();
-    resElement.innerText = `A multiplicação de ${n1} * ${n2} = ${multiplicacao(n1, n2)}`;
+    resElement.innerText = `A soma de ${n1} + ${n2} = ${soma(n1, n2)}`;
 };
 
 window.divisao = function() {
@@ -48,10 +48,10 @@ window.raiz = function() {
         resElement.innerText = "Erro: Raiz quadrada de número negativo!";
         return;
     }
-    resElement.innerText = `A raiz quadrada de ${n1} = ${raiz(n1)}`;
+    resElement.innerText = `A raiz quadrada de ${n1} = ${raiz(n1 * n1)}`;
 };
 
 window.fatorial = function() {
     const { n1, resElement } = getValores();
-    resElement.innerText = `O fatorial de ${n1}! = ${fatorial(n1)}`;
+    resElement.innerText = `O fatorial de ${n1}! = ${fatorial(n1 + n1)}`;
 };

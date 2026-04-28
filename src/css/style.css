@@ -91,3 +91,9 @@ button:active {
     border-top: 2px solid #f8f9fa;
     word-wrap: break-word;
 }
+
+img {
+    width: 600px;   /* aumenta a largura */
+    height: 300px;   /* mantém a proporção */
+    
+}
