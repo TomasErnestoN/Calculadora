@@ -19,10 +19,10 @@ jobs:
       - name: ⚙️ Configurar Pages
         uses: actions/configure-pages@v4
 
-      - name: 📦 Preparar pasta public
+      - name: 📦 Preparar artefato
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public' # O robô só "sobe" o que está aqui dentro
+        path: '.' # './public' PARA '.' # O robô só "sobe" o que está aqui dentro
 
       - name: 🚀 Colocar site no ar
         uses: actions/deploy-pages@v4
