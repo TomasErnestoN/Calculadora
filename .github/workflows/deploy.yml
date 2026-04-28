@@ -2,11 +2,11 @@ name: CD-Hospedagem (GitHub Pages)
 
 on:
   push:
-    branches: [ "main" ] # Só roda quando o código chega na main (versão final)
+    branches: [ "main" ]
 
 permissions:
   contents: read
-  pages: write      # Permissão para o robô escrever na área de site do GitHub
+  pages: write
   id-token: write
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: 📦 Preparar artefato
         uses: actions/upload-pages-artifact@v3
         with:
-        path: '.' # './public' PARA '.' # O robô só "sobe" o que está aqui dentro
+          path: '.' # ✅ CORRETO: Note o espaço extra aqui!
 
       - name: 🚀 Colocar site no ar
         uses: actions/deploy-pages@v4
