@@ -1,15 +1,16 @@
-describe('Robô testando a Calculadora', () => {
-
+describe('Robô testando a Calculadora Completa', () => {
+  
   beforeEach(() => {
-    // Mantemos o '/' para usar o baseUrl do config
-    cy.visit('/');
+    // IMPORTANTE: Verifique se a porta do seu Live Server é a 5500
+    cy.visit('http://127.0.0.1:5500/public/index.html'); 
   });
+
+  // --- OPERAÇÕES BÁSICAS ---
 
   it('Deve testar a Soma', () => {
     cy.get('#n1').type('15');
     cy.get('#n2').type('5');
     cy.contains('button', 'Soma').click();
-    // Use 'include.text' para evitar erros por causa de espaços extras
     cy.get('#resultado').should('include.text', 'A soma de 15 + 5 = 20');
   });
 
@@ -41,28 +42,47 @@ describe('Robô testando a Calculadora', () => {
     cy.get('#resultado').should('include.text', 'Erro: Não é possível dividir por zero!');
   });
 
-  it('Deve testar a Exponenciação (x²)', () => {
-    cy.get('#n1').type('3');
-    cy.contains('button', 'x²').click();
-    cy.get('#resultado').should('include.text', '3 ao quadrado = 9'); 
+  // --- OPERAÇÕES AVANÇADAS (LÓGICA AMPLA) ---
+
+  it('Deve testar a Exponenciação', () => {
+    cy.get('#n1').type('2');
+    cy.get('#n2').type('3');
+    cy.contains('button', 'x').click(); // Ajustado para o texto do seu botão
+    cy.get('#resultado').should('include.text', '2 elevado a 3 = 8');
   });
 
-  it('Deve testar a Raiz Quadrada', () => {
-    cy.get('#n1').type('16');
-    cy.contains('button', 'Raiz').click();
-    cy.get('#resultado').should('include.text', 'A raiz quadrada de 16 = 4'); 
-  });
-
-  it('Deve testar o Fatorial (x!)', () => {
+  it('Deve testar Fatorial Positivo (5! = 120)', () => {
     cy.get('#n1').type('5');
-    cy.contains('button', 'x!').click();
+    cy.contains('button', 'x!').click(); 
     cy.get('#resultado').should('include.text', 'O fatorial de 5! = 120');
   });
 
-  it('Deve testar o botão de Limpar Resultados', () => {
+  it('Deve testar Fatorial Negativo (-3! = -6)', () => {
+    cy.get('#n1').type('-3');
+    cy.contains('button', 'x!').click();
+    cy.get('#resultado').should('include.text', 'O fatorial de -3! = -6');
+  });
+
+  it('Deve testar Raiz Quadrada (n2 vazio assume índice 2)', () => {
+    cy.get('#n1').type('81');
+    cy.get('#n2').clear(); 
+    cy.contains('button', '√').click();
+    cy.get('#resultado').should('include.text', 'A raiz quadrada de 81 = 9');
+  });
+
+  it('Deve testar Raiz com índice personalizado (Índice 3 de 8 = 2)', () => {
+    cy.get('#n1').type('8');
+    cy.get('#n2').type('3');
+    cy.contains('button', '√').click();
+    cy.get('#resultado').should('include.text', 'A raiz de índice 3 de 8 = 2');
+  });
+
+  // --- UTILITÁRIOS ---
+
+  it('Deve limpar os campos corretamente', () => {
     cy.get('#n1').type('99');
     cy.get('#n2').type('99');
-    cy.contains('button', 'Limpar Resultados').click();
+    cy.contains('button', 'Limpar').click();
     cy.get('#n1').should('have.value', '');
     cy.get('#n2').should('have.value', '');
     cy.get('#resultado').should('include.text', 'Aguardando operação...');
