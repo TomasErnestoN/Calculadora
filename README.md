@@ -31,13 +31,13 @@ Resumidamente, o projeto focou em três grandes pilares:
 ### 1. Testes de Lógica (Jest)
 Focados na precisão dos cálculos.
 * `npm test` - Roda os testes unitários básicos.
-* `npm run test:detalhado` - Lista cada operação com checks individuais ✅.
+* `npm run test:detalhado` - Lista cada operação com checks individuais.
 * `npm run test:cobertura` - Exibe a tabela detalhada de % de código protegido.
 
 ### 2. Automação de Interface (Cypress)
 Robôs que testam a experiência real do usuário.
 * `npx cypress open` - Abre o navegador para visualização em tempo real do robô.
-* `npm run cypress:terminal` - **(Recomendado)** Roda o robô em segundo plano e entrega um relatório executivo com checks ✅ e resumo final no terminal.
+* `npm run cypress:terminal` - **(Recomendado)** Roda o robô em segundo plano e entrega um relatório executivo com checks e resumo final no terminal.
 * "cypress:terminal": "cypress run --reporter spec"
 ---
 ```
@@ -63,4 +63,4 @@ Kaio Richard Amaral Lisboa
 
 Tomás Ernesto Carvalho
 
-Alex Neves 
+Alex José Neves 

@@ -38,20 +38,32 @@ window.divisao = function() {
 };
 
 window.exponenciacao = function() {
-    const { n1, resElement } = getValores();
-    resElement.innerText = `${n1} ao quadrado = ${exponenciacao(n1)}`;
+    const { n1, n2, resElement } = getValores();
+    const resultado = exponenciacao(n1, n2);
+    resElement.innerText = `${n1} elevado a ${n2} = ${resultado}`;
 };
 
+
 window.raiz = function() {
-    const { n1, resElement } = getValores();
-    if (n1 < 0) {
-        resElement.innerText = "Erro: Raiz quadrada de número negativo!";
-        return;
+    const { n1, n2, resElement } = getValores();
+    const resultado = raiz(n1, n2);
+    
+    // Se o usuário não digitou n2, mostra mensagem de raiz quadrada
+    if (!n2 || n2 === 0) {
+        resElement.innerText = `A raiz quadrada de ${n1} = ${resultado}`;
+    } else {
+        resElement.innerText = `A raiz de índice ${n2} de ${n1} = ${resultado}`;
     }
-    resElement.innerText = `A raiz quadrada de ${n1} = ${raiz(n1)}`;
 };
+
 
 window.fatorial = function() {
     const { n1, resElement } = getValores();
-    resElement.innerText = `O fatorial de ${n1}! = ${fatorial(n1)}`;
+    const resultado = fatorial(n1);
+    
+    if (isNaN(resultado)) {
+        resElement.innerText = `O fatorial de ${n1} não é definido.`;
+    } else {
+        resElement.innerText = `O fatorial de ${n1}! = ${resultado}`;
+    }
 };
